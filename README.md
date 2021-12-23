@@ -55,6 +55,8 @@ py -m uvicorn app.main:app --reload
 
 ## Development Environment Setup MacOS
 
+Setup of pyenv, poetry & VScode inspired by: https://www.youtube.com/watch?v=547Jr26duHQ
+
 On MacOS its recommended to used `pyenv` to manage different python versions. Simply install with brew:
 ```
 brew update
