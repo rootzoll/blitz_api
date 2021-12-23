@@ -53,6 +53,48 @@ python -m uvicorn app.main:app --reload
 py -m uvicorn app.main:app --reload
 ```
 
+## Development Environment Setup MacOS
+
+On MacOS its recommended to used `pyenv` to manage different python versions. Simply install with brew:
+```
+brew update
+brew instally pyenv
+```
+Add `pyenv` shims to your terminal/shell environment by adding the following lines to your `.zshrc`:
+```
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+``` 
+Exit shell and reopen. Now install & set the recommended python version for the blitz_api with:
+```
+pyenv install 3.7.12
+pyenv global 3.7.12
+```
+Now install poetry with in that pyenv version with:
+```
+pip install poetry
+```
+Now open the blitz_api folder in VScode and type in the VScode terminal:
+```
+poetry shell
+poetry env info --path 
+```
+Copy the resulting path info and with the VScode plugin `Phython` click in left down corner on Python interpreter and choose `+ Enter interpreter path` and Paste the path info. In the VScode terminal now run:
+```
+poetry install
+```
+Now copy the `.env_sample` to `.env` and edit the config values matching your setup. To then run the blitz_api call in VScode terminal:
+```
+python -m uvicorn app.main:app --reload
+```
+Check in local browser is swagger docs can be loade:
+```
+http://127.0.0.1:8000/latest/docs
+```
+
+
 ## Development
 
 It is recommended to have [python-poetry installed](<(https://python-poetry.org/docs/master/#installation)>).
