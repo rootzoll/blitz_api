@@ -139,6 +139,10 @@ async def send_sse_message(id: str, json_data: Dict):
         "default", {"event": id, "data": json.dumps(jsonable_encoder(json_data))}
     )
 
+# TODO
+# idea is to have a second redis channel called system, that the API subscribes to. If for example
+# the 'state' value gets changed by the _cache.sh script, it should publish this to this channel
+# so the API can forward the change to thru the SSE to the WebUI
 
 class SSE:
     SYSTEM_INFO = "system_info"
